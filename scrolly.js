@@ -19,7 +19,6 @@ function scrollPercentage(item) {
 
     window.addEventListener("scroll", () => {
         let sp = scrollPercentage(card);
-        console.log(sp);
         card.style.transform = 'rotate3d(0, 0, 1, 2deg) rotate3d(0, 1, 0, ' + sp * -30 + 'deg)';
     });
 
