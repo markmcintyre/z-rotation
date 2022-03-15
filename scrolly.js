@@ -15,11 +15,15 @@ function scrollPercentage(item) {
   
 (() => {
 
-    let card = document.querySelector(".card");
+    let figures = document.querySelectorAll("figure");
 
     window.addEventListener("scroll", () => {
-        let sp = scrollPercentage(card);
-        card.style.transform = 'rotate3d(0, 0, 1, 2deg) rotate3d(0, 1, 0, ' + sp * -30 + 'deg)';
+        figures.forEach(figure => {
+            let sp = scrollPercentage(figure);
+            if(sp > 0 && sp < 1) {
+                figure.style.transform = `perspective(1000px) rotateZ(-2deg) rotateY(${(sp * 30) - 10}deg) rotateX(${sp * 10}deg)`;
+            }
+        })
     });
 
 })();
